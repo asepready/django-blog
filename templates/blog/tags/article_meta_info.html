@@ -1,0 +1,51 @@
+{% load blog_tags %}
+{% load cache %}
+{% with article.id|add:user.is_authenticated as cachekey %}
+    {% cache 36000 metainfo cachekey %}
+        <footer class="entry-meta">
+            Catatan ini telah diposting di<a href="{{ article.get_absolute_url }}" title="{% datetimeformat article.pub_time %}"
+                     itemprop="datePublished" content="{% datetimeformat article.pub_time %}"
+                     rel="bookmark">
+
+            <time class="entry-date updated"
+                  datetime="{{ article.pub_time }}">
+                {% datetimeformat article.pub_time %}</time>
+        </a>
+            {% if article.type == 'a' %}
+                . milik<a href="{{ article.category.get_absolute_url }}" rel="category tag">{{ article.category.name }}</a>
+                Klasifikasi,
+                {% if article.tags.all %}
+                    Telah diposting
+
+                    {% for t in article.tags.all %}
+                        <a href="{{ t.get_absolute_url }}" rel="tag">{{ t.name }}</a>
+                        {% if t != article.tags.all.last %}
+                            ，
+                        {% endif %}
+                    {% endfor %}
+
+                    Label.
+                {% endif %}
+            {% endif %}
+            <span class="by-author">penulisnya adalah
+        <span class="author vcard">
+            <a class="url fn n" href="{{ article.author.get_absolute_url }}"
+               title="Lihat semua menurut{{ article.author.username }}Artikel yang diterbitkan"
+               rel="author">
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+            <span itemprop="name" itemprop="publisher">
+
+            {{ article.author.username }}
+        </span>
+            </span>
+    </a>
+        </span>。
+                {% if user.is_superuser %}
+                    <a href="{{ article.get_admin_url }}">edit</a>
+                {% endif %}
+    </span>
+        </footer><!-- .entry-meta -->
+
+    {% endcache %}
+{% endwith %}
