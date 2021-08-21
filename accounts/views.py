@@ -17,7 +17,7 @@ from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.views.decorators.debug import sensitive_post_parameters
 from django.utils.http import is_safe_url
-from DjangoBlog.utils import send_email, get_sha256, get_current_site
+from core.utils import send_email, get_sha256, get_current_site
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
@@ -78,7 +78,7 @@ class LogoutView(RedirectView):
         return super(LogoutView, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        from DjangoBlog.utils import cache
+        from core.utils import cache
         cache.clear()
         logout(request)
         return super(LogoutView, self).get(request, *args, **kwargs)
@@ -109,7 +109,7 @@ class LoginView(FormView):
         form = AuthenticationForm(data=self.request.POST, request=self.request)
 
         if form.is_valid():
-            from DjangoBlog.utils import cache
+            from core.utils import cache
             if cache and cache is not None:
                 cache.clear()
             logger.info(self.redirect_field_name)

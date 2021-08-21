@@ -8,7 +8,7 @@ import requests
 import json
 import logging
 import urllib.parse
-from DjangoBlog.utils import parse_dict_to_url, cache_decorator
+from core.utils import parse_dict_to_url, cache_decorator
 
 logger = logging.getLogger(__name__)
 

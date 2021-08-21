@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from DjangoBlog.utils import cache
+from core.utils import cache
 from django.core.management.base import BaseCommand
 
 

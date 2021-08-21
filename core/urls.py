@@ -1,4 +1,4 @@
-"""DjangoBlog URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
-from DjangoBlog.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap, UserSiteMap
-from DjangoBlog.feeds import DjangoBlogFeed
+from core.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap, UserSiteMap
+from core.feeds import CoreFeed
 from django.views.decorators.cache import cache_page
 from django.conf import settings
 from django.conf.urls.static import static
-from DjangoBlog.admin_site import admin_site
+from core.admin_site import admin_site
 from django.urls import include, path
 
 sitemaps = {
@@ -45,8 +45,8 @@ urlpatterns = [
     url(r'', include('oauth.urls', namespace='oauth')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
-    url(r'^feed/$', DjangoBlogFeed()),
-    url(r'^rss/$', DjangoBlogFeed()),
+    url(r'^feed/$', CoreFeed()),
+    url(r'^rss/$', CoreFeed()),
     url(r'^search', include('haystack.urls'), name='search'),
     url(r'', include('servermanager.urls', namespace='servermanager')),
     url(r'', include('owntracks.urls', namespace='owntracks'))

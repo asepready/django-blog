@@ -4,13 +4,13 @@
 from django.test import Client, RequestFactory, TestCase
 from blog.models import Article, Category, Tag
 from django.contrib.auth import get_user_model
-from DjangoBlog.utils import get_current_site
+from core.utils import get_current_site
 from django.urls import reverse
 import datetime
-from DjangoBlog.utils import *
+from core.utils import *
 
 
-class DjangoBlogTest(TestCase):
+class CoreTest(TestCase):
     def setUp(self):
         pass
 

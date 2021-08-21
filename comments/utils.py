@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from DjangoBlog.utils import send_email
-from DjangoBlog.utils import get_current_site
+from core.utils import send_email
+from core.utils import get_current_site
 import logging
 
 logger = logging.getLogger(__name__)

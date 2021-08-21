@@ -1,5 +1,5 @@
 from django.test import Client, RequestFactory, TestCase
-from DjangoBlog.utils import get_current_site
+from core.utils import get_current_site
 from .models import commands
 from django.utils import timezone
 from accounts.models import BlogUser

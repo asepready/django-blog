@@ -7,8 +7,8 @@ from django.conf import settings
 from uuslug import slugify
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-from DjangoBlog.utils import get_current_site
-from DjangoBlog.utils import cache_decorator, cache
+from core.utils import get_current_site
+from core.utils import cache_decorator, cache
 from django.utils.timezone import now
 from mdeditor.fields import MDTextField
 
@@ -358,5 +358,5 @@ class BlogSettings(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        from DjangoBlog.utils import cache
+        from core.utils import cache
         cache.clear()

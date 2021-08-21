@@ -37,6 +37,6 @@ class Command(BaseCommand):
             article.tags.add(basetag)
             article.save()
 
-        from DjangoBlog.utils import cache
+        from core.utils import cache
         cache.clear()
         self.stdout.write(self.style.SUCCESS('created test datas \n'))

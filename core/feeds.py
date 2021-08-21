@@ -5,11 +5,11 @@ from django.contrib.syndication.views import Feed
 from blog.models import Article
 from django.conf import settings
 from django.utils.feedgenerator import Rss201rev2Feed
-from DjangoBlog.utils import CommonMarkdown
+from core.utils import CommonMarkdown
 from django.contrib.auth import get_user_model
 from datetime import datetime
 
-class DjangoBlogFeed(Feed):
+class CoreFeed(Feed):
     feed_type = Rss201rev2Feed
 
     description = 'It is clever and without work, and the epee has no edge.'

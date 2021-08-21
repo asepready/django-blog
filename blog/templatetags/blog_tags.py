@@ -14,10 +14,10 @@ from django.shortcuts import get_object_or_404
 import hashlib
 import urllib
 from comments.models import Comment
-from DjangoBlog.utils import cache_decorator, cache
+from core.utils import cache_decorator, cache
 from django.contrib.auth import get_user_model
 from oauth.models import OAuthUser
-from DjangoBlog.utils import get_current_site
+from core.utils import get_current_site
 import logging
 
 logger = logging.getLogger(__name__)
@@ -48,7 +48,7 @@ def datetimeformat(data):
 @register.filter(is_safe=True)
 @stringfilter
 def custom_markdown(content):
-    from DjangoBlog.utils import CommonMarkdown
+    from core.utils import CommonMarkdown
     return mark_safe(CommonMarkdown.get_markdown(content))
 
 
@@ -61,7 +61,7 @@ def truncatechars_content(content):
     :return:
     """
     from django.template.defaultfilters import truncatechars_html
-    from DjangoBlog.utils import get_blog_setting
+    from core.utils import get_blog_setting
     blogsetting = get_blog_setting()
     return truncatechars_html(content, blogsetting.article_sub_length)
 
@@ -82,7 +82,7 @@ def load_breadcrumb(article):
     :return:
     """
     names = article.get_category_tree()
-    from DjangoBlog.utils import get_blog_setting
+    from core.utils import get_blog_setting
     blogsetting = get_blog_setting()
     site = get_current_site().domain
     names.append((blogsetting.sitename, '/'))
@@ -122,7 +122,7 @@ def load_sidebar(user, linktype):
     :return:
     """
     logger.info('load sidebar')
-    from DjangoBlog.utils import get_blog_setting
+    from core.utils import get_blog_setting
     blogsetting = get_blog_setting()
     recent_articles = Article.objects.filter(
         status='p')[:blogsetting.sidebar_article_count]
@@ -267,7 +267,7 @@ def load_article_detail(article, isindex, user):
     :param isindex:是否列表页，若是列表页只显示摘要
     :return:
     """
-    from DjangoBlog.utils import get_blog_setting
+    from core.utils import get_blog_setting
     blogsetting = get_blog_setting()
 
     return {

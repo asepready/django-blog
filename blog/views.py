@@ -12,7 +12,7 @@ from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from DjangoBlog.utils import cache, get_sha256, get_blog_setting
+from core.utils import cache, get_sha256, get_blog_setting
 from django.shortcuts import get_object_or_404
 from blog.models import Article, Category, Tag, Links, LinkShowType
 from comments.forms import CommentForm
@@ -316,7 +316,7 @@ def refresh_memcache(request):
     try:
 
         if request.user.is_superuser:
-            from DjangoBlog.utils import cache
+            from core.utils import cache
             if cache and cache is not None:
                 cache.clear()
             return HttpResponse("ok")

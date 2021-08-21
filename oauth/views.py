@@ -13,12 +13,12 @@ from django.views.generic import FormView, RedirectView
 from oauth.forms import RequireEmailForm
 from django.urls import reverse
 from django.db import transaction
-from DjangoBlog.utils import send_email, get_sha256, save_user_avatar
-from DjangoBlog.utils import get_current_site
+from core.utils import send_email, get_sha256, save_user_avatar
+from core.utils import get_current_site
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseForbidden
 from .oauthmanager import get_manager_by_type, OAuthAccessTokenException
-from DjangoBlog.blog_signals import oauth_user_login_signal
+from core.blog_signals import oauth_user_login_signal
 
 import logging
 
