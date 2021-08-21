@@ -5,8 +5,8 @@ from django.contrib.admin import AdminSite
 from django.contrib.sites.admin import SiteAdmin
 from django.contrib.admin.models import LogEntry
 from django.contrib.sites.models import Site
-from core.utils import get_current_site
-from core.logentryadmin import LogEntryAdmin
+from system.utils import get_current_site
+from system.logentryadmin import LogEntryAdmin
 from blog.admin import *
 from accounts.admin import *
 from oauth.admin import *
@@ -15,7 +15,7 @@ from comments.admin import *
 from owntracks.admin import *
 
 
-class CoreAdminSite(AdminSite):
+class DjangoBlogAdminSite(AdminSite):
     site_header = 'Administration'
     site_title = 'admin'
 
@@ -36,7 +36,7 @@ class CoreAdminSite(AdminSite):
     #     return urls + my_urls
 
 
-admin_site = CoreAdminSite(name='admin')
+admin_site = DjangoBlogAdminSite(name='admin')
 
 admin_site.register(Article, ArticlelAdmin)
 admin_site.register(Category, CategoryAdmin)

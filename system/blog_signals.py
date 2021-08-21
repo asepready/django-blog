@@ -6,13 +6,13 @@ import django.dispatch
 from django.dispatch import receiver
 from django.conf import settings
 from django.contrib.admin.models import LogEntry
-from core.utils import get_current_site
+from DjangoBlog.utils import get_current_site
 from django.core.mail import EmailMultiAlternatives
 from django.db.models.signals import post_save
 from django.contrib.auth.signals import user_logged_in, user_logged_out, user_login_failed
 
-from core.utils import cache, send_email, expire_view_cache, delete_sidebar_cache, delete_view_cache
-from core.spider_notify import SpiderNotify
+from DjangoBlog.utils import cache, send_email, expire_view_cache, delete_sidebar_cache, delete_view_cache
+from DjangoBlog.spider_notify import SpiderNotify
 from oauth.models import OAuthUser
 from blog.models import Article, Category, Tag, Links, SideBar, BlogSettings
 from comments.models import Comment
@@ -61,7 +61,7 @@ def oauth_user_login_signal_handler(sender, **kwargs):
     oauthuser = OAuthUser.objects.get(id=id)
     site = get_current_site().domain
     if oauthuser.picture and not oauthuser.picture.find(site) >= 0:
-        from core.utils import save_user_avatar
+        from DjangoBlog.utils import save_user_avatar
         oauthuser.picture = save_user_avatar(oauthuser.picture)
         oauthuser.save()
 
