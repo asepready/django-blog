@@ -194,16 +194,16 @@ BAIDU_NOTIFY_URL = os.environ.get('DJANGO_BAIDU_NOTIFY_URL') \
 
 # Email:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = env_to_bool('DJANGO_EMAIL_TLS', False)
+EMAIL_USE_TLS = env_to_bool('DJANGO_EMAIL_TLS', True)
 EMAIL_USE_SSL = env_to_bool('DJANGO_EMAIL_SSL', True)
-EMAIL_HOST = os.environ.get('DJANGO_EMAIL_HOST') or 'smtp.mxhichina.com'
-EMAIL_PORT = int(os.environ.get('DJANGO_EMAIL_PORT') or 465)
+EMAIL_HOST = os.environ.get('DJANGO_EMAIL_HOST') or 'smtp.gmail.com'
+EMAIL_PORT = int(os.environ.get('DJANGO_EMAIL_PORT') or 587)
 EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 # Setting debug=false did NOT handle except email notifications
-ADMINS = [('admin', os.environ.get('DJANGO_ADMIN_EMAIL') or 'admin@admin.com')]
+ADMINS = [('admin', os.environ.get('DJANGO_ADMIN_EMAIL') or 'savalunova@gmail.com')]
 # WX ADMIN password(Two times md5)
 WXADMIN = os.environ.get(
     'DJANGO_WXADMIN_PASSWORD') or '995F03AC401D6CABABAEF756FC4D43C7'
