@@ -48,7 +48,7 @@ admin_site.register(BlogSettings, BlogSettingsAdmin)
 admin_site.register(commands, CommandsAdmin)
 admin_site.register(EmailSendLog, EmailSendLogAdmin)
 
-admin_site.register(BlogUser, BlogUserAdmin)
+admin_site.register(Accounts, AccountsAdmin)
 
 admin_site.register(Comment, CommentAdmin)
 

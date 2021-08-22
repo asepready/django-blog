@@ -2,7 +2,7 @@ from django.test import Client, RequestFactory, TestCase
 from blog.models import Article, Category, Tag
 from django.contrib.auth import get_user_model
 from core.utils import delete_view_cache, delete_sidebar_cache
-from accounts.models import BlogUser
+from accounts.models import Accounts
 from django.urls import reverse
 from core.utils import *
 from django.conf import settings
@@ -18,11 +18,11 @@ class AccountTest(TestCase):
 
     def test_validate_account(self):
         site = get_current_site().domain
-        user = BlogUser.objects.create_superuser(
+        user = Accounts.objects.create_superuser(
             email="liangliangyy1@gmail.com",
             username="liangliangyy1",
             password="qwer!@#$ggg")
-        testuser = BlogUser.objects.get(username='liangliangyy1')
+        testuser = Accounts.objects.get(username='liangliangyy1')
 
         loginresult = self.client.login(
             username='liangliangyy1',
@@ -52,7 +52,7 @@ class AccountTest(TestCase):
     def test_validate_register(self):
         self.assertEquals(
             0, len(
-                BlogUser.objects.filter(
+                Accounts.objects.filter(
                     email='user123@user.com')))
         response = self.client.post(reverse('account:register'), {
             'username': 'user1233',
@@ -62,9 +62,9 @@ class AccountTest(TestCase):
         })
         self.assertEquals(
             1, len(
-                BlogUser.objects.filter(
+                Accounts.objects.filter(
                     email='user123@user.com')))
-        user = BlogUser.objects.filter(email='user123@user.com')[0]
+        user = Accounts.objects.filter(email='user123@user.com')[0]
         sign = get_sha256(get_sha256(settings.SECRET_KEY + str(user.id)))
         path = reverse('accounts:result')
         url = '{path}?type=validation&id={id}&sign={sign}'.format(
@@ -73,7 +73,7 @@ class AccountTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
         self.client.login(username='user1233', password='password123!q@wE#R$T')
-        user = BlogUser.objects.filter(email='user123@user.com')[0]
+        user = Accounts.objects.filter(email='user123@user.com')[0]
         user.is_superuser = True
         user.is_staff = True
         user.save()

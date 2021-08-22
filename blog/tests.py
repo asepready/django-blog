@@ -5,7 +5,7 @@ from core.utils import get_current_site, get_sha256
 from blog.forms import BlogSearchForm
 from django.core.paginator import Paginator
 from blog.templatetags.blog_tags import load_pagination_info, load_articletags
-from accounts.models import BlogUser
+from accounts.models import Accounts
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.conf import settings
 from django.urls import reverse
@@ -23,7 +23,7 @@ class ArticleTest(TestCase):
 
     def test_validate_article(self):
         site = get_current_site().domain
-        user = BlogUser.objects.get_or_create(
+        user = Accounts.objects.get_or_create(
             email="liangliangyy@gmail.com",
             username="liangliangyy")[0]
         user.set_password("liangliangyy")

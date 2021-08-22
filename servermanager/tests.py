@@ -2,7 +2,7 @@ from django.test import Client, RequestFactory, TestCase
 from core.utils import get_current_site
 from .models import commands
 from django.utils import timezone
-from accounts.models import BlogUser
+from accounts.models import Accounts
 from blog.models import Category, Article
 from .robot import search, category, recents
 from werobot.messages.messages import TextMessage
@@ -23,7 +23,7 @@ class ServerManagerTest(TestCase):
 
     def test_validate_comment(self):
         site = get_current_site().domain
-        user = BlogUser.objects.create_superuser(
+        user = Accounts.objects.create_superuser(
             email="liangliangyy1@gmail.com",
             username="liangliangyy1",
             password="liangliangyy1")

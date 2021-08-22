@@ -7,7 +7,7 @@ from django.utils.timezone import now
 
 # Create your models here.
 
-class BlogUser(AbstractUser):
+class Accounts(AbstractUser):
     nickname = models.CharField('Nama Panggilan', max_length=100, blank=True)
     created_time = models.DateTimeField('Waktu Buat', default=now)
     last_mod_time = models.DateTimeField('Waktu Ubah', default=now)

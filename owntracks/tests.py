@@ -1,6 +1,6 @@
 from django.test import Client, RequestFactory, TestCase
 from .models import OwnTrackLog
-from accounts.models import BlogUser
+from accounts.models import Accounts
 from owntracks.views import convert_to_amap
 import json
 
@@ -41,7 +41,7 @@ class OwnTrackLogTest(TestCase):
         rsp = self.client.get('/owntracks/show_maps')
         self.assertEqual(rsp.status_code, 302)
 
-        user = BlogUser.objects.create_superuser(
+        user = Accounts.objects.create_superuser(
             email="liangliangyy1@gmail.com",
             username="liangliangyy1",
             password="liangliangyy1")

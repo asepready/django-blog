@@ -4,17 +4,17 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 # Register your models here.
-from .models import BlogUser
+from .models import Accounts
 from django.utils.translation import gettext, gettext_lazy as _
 from django.contrib.auth.forms import UsernameField
 
 
-class BlogUserCreationForm(forms.ModelForm):
+class AccountsCreationForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Enter the password again', widget=forms.PasswordInput)
 
     class Meta:
-        model = BlogUser
+        model = Accounts
         fields = ('email',)
 
     def clean_password2(self):
@@ -35,7 +35,7 @@ class BlogUserCreationForm(forms.ModelForm):
         return user
 
 
-class BlogUserChangeForm(UserChangeForm):
+class AccountsChangeForm(UserChangeForm):
     password = ReadOnlyPasswordHashField(
         label=_("Password"),
         help_text=_(
@@ -47,7 +47,7 @@ class BlogUserChangeForm(UserChangeForm):
     email = forms.EmailField(label="Email", widget=forms.EmailInput)
 
     class Meta:
-        model = BlogUser
+        model = Accounts
         fields = '__all__'
         field_classes = {'username': UsernameField}
 
@@ -55,9 +55,9 @@ class BlogUserChangeForm(UserChangeForm):
         super().__init__(*args, **kwargs)
 
 
-class BlogUserAdmin(UserAdmin):
-    form = BlogUserChangeForm
-    add_form = BlogUserCreationForm
+class AccountsAdmin(UserAdmin):
+    form = AccountsChangeForm
+    add_form = AccountsCreationForm
     list_display = (
         'id',
         'nickname',

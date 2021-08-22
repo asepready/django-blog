@@ -164,7 +164,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collectedstatic')
 STATIC_URL = '/static/'
 STATICFILES = os.path.join(BASE_DIR, 'static')
 
-AUTH_USER_MODEL = 'accounts.BlogUser'
+AUTH_USER_MODEL = 'accounts.Accounts'
 LOGIN_URL = '/login/'
 
 TIME_FORMAT = '%Y-%m-%d %H:%M:%S'

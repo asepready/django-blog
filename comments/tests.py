@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from core.utils import get_current_site
 from django.urls import reverse
 from django.utils import timezone
-from accounts.models import BlogUser
+from accounts.models import Accounts
 from comments.templatetags.comments_tags import *
 from core.utils import get_max_articleid_commentid
 
@@ -18,7 +18,7 @@ class CommentsTest(TestCase):
 
     def test_validate_comment(self):
         site = get_current_site().domain
-        user = BlogUser.objects.create_superuser(
+        user = Accounts.objects.create_superuser(
             email="liangliangyy1@gmail.com",
             username="liangliangyy1",
             password="liangliangyy1")
