@@ -1,12 +1,6 @@
 # DjangoBlog
 
-🌍
-*[English](README-en.md) ∙ [简体中文](README.md)*
-
 A blog system based on `python3.8` and `Django3.0`.
-
-
-[![Django CI](https://github.com/liangliangyy/DjangoBlog/actions/workflows/django.yml/badge.svg)](https://github.com/liangliangyy/DjangoBlog/actions/workflows/django.yml) [![CodeQL](https://github.com/liangliangyy/DjangoBlog/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/liangliangyy/DjangoBlog/actions/workflows/codeql-analysis.yml) [![codecov](https://codecov.io/gh/liangliangyy/DjangoBlog/branch/master/graph/badge.svg)](https://codecov.io/gh/liangliangyy/DjangoBlog) [![Requirements Status](https://requires.io/github/liangliangyy/DjangoBlog/requirements.svg?branch=master)](https://requires.io/github/liangliangyy/DjangoBlog/requirements/?branch=master)  [![license](https://img.shields.io/github/license/liangliangyy/djangoblog.svg)]()  
 
 
 ## Main Features:
@@ -112,15 +106,3 @@ Open up a browser and visit: http://127.0.0.1:8000/ , the you will see the blog.
 
 ## More configurations
 [More configurations details](/docs/config-en.md)
-
-## About the issues
-
-If you have any *question*, please use Issue or send problem descriptions to my email `liangliangyy#gmail.com`. I will reponse you as soon as possible. And, we recommend you to use Issue.
-
----
-## To Everyone 🙋‍♀️🙋‍♂️
-If this project helps you, please submit your site address [here](https://github.com/liangliangyy/DjangoBlog/issues/214) to let more people see it.
-
-Your reply will be the driving force for me to continue to update and maintain this project.
-
-🙏🙏🙏

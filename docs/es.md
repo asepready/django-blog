@@ -1,28 +1,28 @@
-# 集成Elasticsearch
-如果你已经有了`Elasticsearch`环境，那么可以将搜索从`Whoosh`换成`Elasticsearch`，集成方式也很简单，
-首先需要注意如下几点:
-1. 你的`Elasticsearch`支持`ik`中文分词
-2. 你的`Elasticsearch`版本>=7.3.0
+# Integrate Elasticsearch
+If you already have the `Elasticsearch` environment, you can change the search from `Whoosh` to `Elasticsearch`, the integration method is also very simple,
+First of all, you need to pay attention to the following points:
+1. Your `Elasticsearch` supports `ik` Chinese word segmentation
+2. Your `Elasticsearch` version>=7.3.0
 
-接下来在`settings.py`做如下改动即可：
-- 增加es链接，如下所示：
+Then make the following changes in `settings.py`:
+-Add es link, as shown below:
 ```python
 ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': '127.0.0.1:9200'
-    },
+     'default': {
+         'hosts': '127.0.0.1:9200'
+     },
 }
 ```
-- 修改`HAYSTACK`配置：
+-Modify `HAYSTACK` configuration:
 ```python
 HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'DjangoBlog.elasticsearch_backend.ElasticSearchEngine',
-    },
+     'default': {
+         'ENGINE':'DjangoBlog.elasticsearch_backend.ElasticSearchEngine',
+     },
 }
 ```
-然后终端执行:
+Then the terminal executes:
 ```shell script
 ./manage.py build_index
 ```
-这将会在你的es中创建两个索引，分别是`blog`和`performance`，其中`blog`索引就是搜索所使用的，而`performance`会记录每个请求的响应时间，以供将来优化使用。
+This will create two indexes in your es, namely `blog` and `performance`, where the `blog` index is used for search, and `performance` will record the response time of each request for future Optimized use.

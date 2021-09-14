@@ -1,8 +1,5 @@
 # DjangoBlog
 
-🌍
-*[English](/docs/README-en.md) ∙ [Simplified Chinese](README.md)*
-
 A blog based on `python3.8` and `Django3.0`.
 
 [![Django CI](https://github.com/liangliangyy/DjangoBlog/actions/workflows/django.yml/badge.svg)](https://github.com/liangliangyy/DjangoBlog/actions/workflows/django .yml) [![CodeQL](https://github.com/liangliangyy/DjangoBlog/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/liangliangyy/DjangoBlog/actions /workflows/codeql-analysis.yml) [![codecov](https://codecov.io/gh/liangliangyy/DjangoBlog/branch/master/graph/badge.svg)](https://codecov.io/gh /liangliangyy/DjangoBlog) [![Requirements Status](https://requires.io/github/liangliangyy/DjangoBlog/requirements.svg?branch=master)](https://requires.io/github/liangliangyy/DjangoBlog/ requirements/?branch=master) [![license](https://img.shields.io/github/license/liangliangyy/djangoblog.svg)]()
@@ -111,32 +108,3 @@ This project already supports the use of docker to deploy. If you have a docker 
 ## More configuration:
 [More configuration introduction](/docs/config.md)
 [Integrated elasticsearch](/docs/es.md)
-
-## Issue related
-
-If you have any questions, please refer to Issue, or send a description of the problem to my mailbox `liangliangyy#gmail.com`. I will answer as soon as possible. I recommend submitting the issue method.
-
----
- ## To everyone🙋‍♀️🙋‍♂️
- If this project helped you, please leave your URL [here](https://github.com/liangliangyy/DjangoBlog/issues/214) for more people to see.
-Your reply will be my motivation to continue to update and maintain.
-
-
-## Donate
-If you think this project is helpful to you, you are welcome to buy me a cup of coffee. Your support is my biggest motivation. You can scan the QR code below to pay me, thank you.
-### Alipay:
-<div>
-<img src="https://resource.lylinux.net/image/2017/12/16/IMG_0207.jpg" width="150" height="150" />
-</div>
-
-### WeChat:
-<div>
-<img src="https://resource.lylinux.net/image/2017/12/16/IMG_0206.jpg" width="150" height="150" />
-</div>
-
----
-
-Thanks jetbrains
-<div>
-<a href="https://www.jetbrains.com/?from=DjangoBlog"><img src="https://resource.lylinux.net/image/2020/07/01/logo.png" width= "150" height="150"></a>
-</div>
